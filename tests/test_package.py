@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 import subprocess
 
@@ -8,8 +9,7 @@ from .examples import expected_result
 
 
 def test_root():
-    venv = os.path.join(os.path.dirname(test_dir), "venv")
-    python = os.path.join(venv, "scripts", "python.exe")
+    python = sys.executable
 
     result = subprocess.check_output([python, os.path.join(test_dir, "examples.py"), "a"])
 
