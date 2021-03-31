@@ -2,4 +2,4 @@
 
 # skadoo
 
-Python library for buiding command line programs.
+Python library for building command line programs.
