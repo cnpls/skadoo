@@ -1,0 +1,7 @@
+pytest
+flake8
+wheel
+twine
+pdoc
+pydoc-markdown
+black
