@@ -1,1 +1,1 @@
-venv/scripts/python.exe -m pdoc package
+venv/scripts/python.exe -m pdoc skadoo

@@ -4,7 +4,7 @@ import re
 
 from setuptools import setup, find_packages
 
-NAME = "package"
+NAME = "skadoo"
 CLASSIFIERS = """\
 Intended Audience :: Developers
 License :: OSI Approved :: MIT License
@@ -48,14 +48,14 @@ with open(os.path.join(project_root, "requirements.txt")) as f:
     install_requires = f.read().splitlines()
 
 
-setup(name='package',
+setup(name=NAME,
     version=find_version(os.path.join(project_root, NAME, "__init__.py")),
-    description='',
+    description='Python library for buiding command line programs.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='',
-    author='',
-    author_email='',
+    url='https://github.com/cnpls/skadoo',
+    author='Chris Pryer',
+    author_email='christophpryer@gmail.com',
     license='MIT',
     packages=find_packages(),
     install_requires=install_requires,

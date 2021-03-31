@@ -1,11 +1,11 @@
 echo "running install check"
 rm -rf pre-commit-venv
 python -m venv pre-commit-venv
-pre-commit-venv/scripts/python.exe -m pip install --upgrade pip
-pre-commit-venv/scripts/python.exe -m pip install .
+pre-commit-venv/scripts/python.exe -m install --upgrade pip
+pre-commit-venv/scripts/pip install .
 
 echo "running formatting, linting, tests"
-pre-commit-venv/scripts/python.exe -m pip install -r requirements-dev.txt
+pre-commit-venv/scripts/pip install -r requirements.txt -r requirements-dev.txt
 pre-commit-venv/scripts/python.exe -m black pdappend tests setup.py
 pre-commit-venv/scripts/python.exe -m flake8 pdappend tests setup.py
 pre-commit-venv/scripts/python.exe -m pytest
@@ -15,5 +15,5 @@ rm -rf pre-commit-venv
 
 echo "updating docs"
 mkdir docs
-# TODO: not working
-venv/scripts/python.exe -m pydoc-markdown -I package --render-toc > docs/docs.md
+echo "docs must be updated manually (run pydoc-markdown -I skadoo --render-toc > docs/docs.md)"
+#venv/scripts/python.exe -m pydoc-markdown -I skadoo --render-toc > docs/docs.md
