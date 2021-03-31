@@ -22,16 +22,15 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        if [ -d venv ]; then rm -rf venv; fi
-        python -m venv venv
-        venv/scripts/python.exe -m install --upgrade pip
-        venv/scripts/pip install flake8 pytest
-        venv/scripts/pip install -e .
-        if [ -f requirements.txt ]; then venv/scripts/pip install -r requirements.txt; fi
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        pip install -e .
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
-        venv/scripts/python.exe -m flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=examples/notebooks/py/*
-        venv/scripts/python.exe -m flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=examples/notebooks/py/*
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=examples/notebooks/py/*
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --exclude=examples/notebooks/py/*
     - name: Test with pytest
       run: |
-        venv/scripts/python.exe -m pytest
+        pytest
+
