@@ -1,8 +1,10 @@
 # Table of Contents
 
 * [main](#main)
+  * [get\_command\_parts](#main.get_command_parts)
   * [is\_called](#main.is_called)
   * [Flag](#main.Flag)
+  * [parse\_flag](#main.parse_flag)
   * [create\_flag](#main.create_flag)
   * [Root](#main.Root)
   * [create\_root](#main.create_root)
@@ -13,18 +15,32 @@
 <a name="main"></a>
 # main
 
+<a name="main.get_command_parts"></a>
+#### get\_command\_parts
+
+```python
+get_command_parts() -> List[str]
+```
+
+Parse command line arguments and return cleaned for "=" flags.
+
+**Returns**:
+
+  List[str]
+
 <a name="main.is_called"></a>
 #### is\_called
 
 ```python
-is_called(string: str) -> bool
+is_called(name: str, abbreviation: str = None) -> bool
 ```
 
 Checks if string is in sys.argv.
 
 **Arguments**:
 
-- `string` _str_ - String to check for.
+- `name` _str_ - Full string to check for.
+- `abbreviation` _str_ - Abbreviation to check for.
   
 
 **Returns**:
@@ -48,12 +64,33 @@ Flag argument object.
 - `called` _bool_ - Boolean of if the argument is called. Defaults to False.
 - `short` _str_ - Short-hand version of flag name. Defaults to "-[initials]".
 - `value` _str_ - Value passed with flag argument. Defaults to "False".
+- `empty` _bool_ - True if no value should be expected. Defaults to True.
+
+<a name="main.parse_flag"></a>
+#### parse\_flag
+
+```python
+parse_flag(flag: str, short: str, empty: bool = False) -> str
+```
+
+Parse flag argumnet for value. Defaults to True if exists but no falue passed.
+
+**Arguments**:
+
+- `flag` _str_ - Flag passed via command line.
+- `short` _str_ - Short version of flag argument.
+- `empty` _bool_ - True if no value should be expected. Defaults to True.
+  
+
+**Returns**:
+
+  str
 
 <a name="main.create_flag"></a>
 #### create\_flag
 
 ```python
-create_flag(name: str, flag: str = "", description: str = "", short: str = "", value: str = "") -> Flag
+create_flag(name: str, flag: str = "", description: str = "", short: str = "", value: str = "", empty: bool = False) -> Flag
 ```
 
 Create Flag argument.
@@ -65,6 +102,7 @@ Create Flag argument.
 - `description` _str, optional_ - Description of argument. Defaults to "".
 - `short` _str, optional_ - Short-hand version of flag string. Defaults to "-[initials]".
 - `value` _str, optional_ - Value passed with flag argument. Defaults to "False".
+- `empty` _str, optional_ - True if no value should be expected. Defaults to True.
   
 
 **Returns**:

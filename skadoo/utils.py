@@ -1,5 +1,6 @@
 def str_to_bool(string: str) -> bool:
-    """Converts string to bool.
+    """
+    Converts string to bool.
 
     Args:
         string (str): ("Yes", "No", "True", "False", "1", "0")

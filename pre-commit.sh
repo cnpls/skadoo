@@ -16,4 +16,4 @@ rm -rf pre-commit-venv
 echo "updating docs"
 mkdir docs
 echo "docs must be updated manually (run pydoc-markdown -I skadoo --render-toc > docs/docs.md)"
-#venv/scripts/python.exe -m pydoc-markdown -I skadoo --render-toc > docs/docs.md
+#venv/scripts/python.exe -m pydoc-markdown -I skadoo --render-toc > docs/README.md
