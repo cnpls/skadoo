@@ -164,4 +164,4 @@ def create_root(name: str, description: str = "", flags: List[Flag] = []) -> Roo
     """
     called = is_called(name)
 
-    return Root(name, description, called, flags={_.name: _.value for _ in flags})
+    return Root(name, description, called, flags={_.name: _ for _ in flags})

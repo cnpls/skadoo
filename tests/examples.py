@@ -38,17 +38,17 @@ c = skadoo.create_root(
 def main():
 
     if a.called:
-        a_function(x=a.flags["x"], y=a.flags["y"], z=a.flags["z"])
+        a_function(x=a.flags["x"].value, y=a.flags["y"].value, z=a.flags["z"].value)
 
         return
 
     elif b.called:
-        b_function(x=b.flags["x"], y=b.flags["y"], z=b.flags["z"])
+        b_function(x=b.flags["x"].value, y=b.flags["y"].value, z=b.flags["z"].value)
 
         return
 
     elif c.called:
-        c_function(x=c.flags["x"], y=c.flags["y"], z=c.flags["z"])
+        c_function(x=c.flags["x"].value, y=c.flags["y"].value, z=c.flags["z"].value)
 
         return
 
