@@ -2,6 +2,7 @@
 
 * [main](#main)
   * [get\_command\_parts](#main.get_command_parts)
+  * [get\_name\_parts](#main.get_name_parts)
   * [is\_called](#main.is_called)
   * [Flag](#main.Flag)
   * [parse\_flag](#main.parse_flag)
@@ -23,6 +24,25 @@ get_command_parts() -> List[str]
 ```
 
 Parse command line arguments and return cleaned for "=" flags.
+
+**Returns**:
+
+  List[str]
+
+<a name="main.get_name_parts"></a>
+#### get\_name\_parts
+
+```python
+get_name_parts(name: str) -> List[str]
+```
+
+Get name parts from name of argument for constructing internal arg name or
+flag identity.
+
+**Arguments**:
+
+- `name` _str_ - String of name for arugment (ex: "My Argument").
+  
 
 **Returns**:
 

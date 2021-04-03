@@ -14,9 +14,25 @@ def get_command_parts() -> List[str]:
     """
     clean_args = []
     for _ in sys.argv:
-        clean_args += _.split("=")
+        clean_args += _.lower().split("=")
 
     return clean_args
+
+
+def get_name_parts(name: str) -> List[str]:
+    """
+    Get name parts from name of argument for constructing internal arg name or 
+    flag identity.
+
+    Args:
+        name (str): String of name for arugment (ex: "My Argument").
+
+    Returns:
+        List[str]
+    """
+    return (
+        name.lower().replace("--", " ").strip().replace("-", " ").replace("_", " ").split(" ")
+    )
 
 
 def is_called(name: str, abbreviation: str = None) -> bool:
@@ -117,9 +133,7 @@ def create_flag(
     """
 
     # clean "--flag-name", "flag name", "flag_name", "-flag-name"
-    flag_parts = (
-        name.replace("--", " ").strip().replace("-", " ").replace("_", " ").split(" ")
-    )
+    flag_parts = get_name_parts(name)
     flag = "--" + "-".join(flag_parts)
 
     if short == "":
@@ -145,6 +159,7 @@ class Root(NamedTuple):
     """
 
     name: str
+    root: str
     description: str
     called: bool
     flags: Dict[str, Flag]
@@ -162,6 +177,8 @@ def create_root(name: str, description: str = "", flags: List[Flag] = []) -> Roo
     Returns:
         Root
     """
-    called = is_called(name)
+    root = "_".join(get_name_parts(name))
 
-    return Root(name, description, called, flags={_.name: _ for _ in flags})
+    called = is_called(root)
+
+    return Root(name, root, description, called, flags={_.name: _ for _ in flags})
