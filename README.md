@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     # or
 
-    print("root used:", my_root.name, f"flag ({my_root.flag.name}) value: {my_root.flag.value}")
+    print("root used:", my_root.name, f"flag ({my_root.flags["my flag"].flag}) value: {my_root.flags["my flag"].value}")
 ```
 
 Run `python my_script.py my_root --my-flag="value"`
