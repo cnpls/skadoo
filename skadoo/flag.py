@@ -45,7 +45,8 @@ class Flag(NamedTuple):
                 f"Flag ({self.flag})",
                 f"Short ({self.short})",
                 f"Name: {self.name}",
-                f"Empty Arg: {self.empty}" f"Description: {self.description}",
+                f"Empty Arg: {self.empty}",
+                f"Description: {self.description}",
             ]
         )
 
