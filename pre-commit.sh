@@ -1,7 +1,7 @@
 echo "running install check"
 rm -rf pre-commit-venv
 python -m venv pre-commit-venv
-pre-commit-venv/scripts/python.exe -m install --upgrade pip
+pre-commit-venv/scripts/python.exe-m pip install --upgrade pip
 pre-commit-venv/scripts/pip install .
 
 echo "running formatting, linting, tests"
