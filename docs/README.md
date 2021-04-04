@@ -257,7 +257,7 @@ Checks if string is in sys.argv.
 want_help() -> bool
 ```
 
-Check if -h or --h in sys.argv.
+Check if -h or --help in sys.argv.
 
 **Returns**:
 

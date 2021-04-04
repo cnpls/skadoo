@@ -86,7 +86,7 @@ def is_called(full: str, abbreviation: str = None) -> bool:
 
 def want_help() -> bool:
     """
-    Check if -h or --h in sys.argv.
+    Check if -h or --help in sys.argv.
 
     Returns:
         bool
