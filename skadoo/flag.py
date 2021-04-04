@@ -25,6 +25,34 @@ class Flag(NamedTuple):
     value: str
     empty: bool
 
+    def validate(self):
+        """Validate Flag composition."""
+
+        if self.empty and self.value != "":
+            raise ValueError(
+                f"Cannot set value ({self.value}) for empty flag ({self.flag})"
+            )
+
+    def __str__(self) -> str:
+        """
+        Create string of Flag contents.
+
+        Returns:
+            str
+        """
+        return "\n".join(
+            [
+                f"Flag ({self.flag})",
+                f"Short ({self.short})",
+                f"Name: {self.name}",
+                f"Empty Arg: {self.empty}" f"Description: {self.description}",
+            ]
+        )
+
+    def describe(self):
+        """Print Flag content descriptions"""
+        print(self.__str__())
+
 
 def parse_flag(flag: str, short: str, empty: bool = False) -> str:
     """
@@ -91,4 +119,7 @@ def create_flag(
     if called:
         value = parse_flag(flag, short, empty)
 
-    return Flag(name, flag, description, called, short, value, empty)
+    result = Flag(name, flag, description, called, short, value, empty)
+    result.validate()
+
+    return result

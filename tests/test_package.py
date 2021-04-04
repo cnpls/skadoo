@@ -27,8 +27,6 @@ def test_add():
         ]
     ).decode(sys.stdout.encoding)
 
-    print(result)
-
     assert str(x + y + z) in str(result)
     assert "Commands not recognized" not in str(result)
 
@@ -53,8 +51,6 @@ def test_subtract():
         ]
     ).decode(sys.stdout.encoding)
 
-    print(result)
-
     assert str(x - y - z) in str(result)
     assert "Commands not recognized" not in str(result)
 
@@ -78,8 +74,6 @@ def test_multiply():
             str(z),
         ]
     ).decode(sys.stdout.encoding)
-
-    print(result)
 
     assert str(x * y * z) in str(result)
     assert "Commands not recognized" not in str(result)

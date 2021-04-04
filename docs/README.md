@@ -1,11 +1,16 @@
 # Table of Contents
 
-* [flags](#flags)
-  * [Flag](#flags.Flag)
-  * [parse\_flag](#flags.parse_flag)
-  * [create\_flag](#flags.create_flag)
+* [flag](#flag)
+  * [Flag](#flag.Flag)
+    * [validate](#flag.Flag.validate)
+    * [\_\_str\_\_](#flag.Flag.__str__)
+    * [describe](#flag.Flag.describe)
+  * [parse\_flag](#flag.parse_flag)
+  * [create\_flag](#flag.create_flag)
 * [root](#root)
   * [Root](#root.Root)
+    * [\_\_str\_\_](#root.Root.__str__)
+    * [describe](#root.Root.describe)
   * [create\_root](#root.create_root)
 * [utils](#utils)
   * [str\_to\_bool](#utils.str_to_bool)
@@ -14,10 +19,10 @@
   * [is\_called](#utils.is_called)
 * [\_\_init\_\_](#__init__)
 
-<a name="flags"></a>
-# flags
+<a name="flag"></a>
+# flag
 
-<a name="flags.Flag"></a>
+<a name="flag.Flag"></a>
 ## Flag Objects
 
 ```python
@@ -36,7 +41,38 @@ Flag argument object.
 - `value` _str_ - Value passed with flag argument. Defaults to "False".
 - `empty` _bool_ - True if no value should be expected. Defaults to True.
 
-<a name="flags.parse_flag"></a>
+<a name="flag.Flag.validate"></a>
+#### validate
+
+```python
+ | validate()
+```
+
+Validate Flag composition.
+
+<a name="flag.Flag.__str__"></a>
+#### \_\_str\_\_
+
+```python
+ | __str__() -> str
+```
+
+Create string of Flag contents.
+
+**Returns**:
+
+  str
+
+<a name="flag.Flag.describe"></a>
+#### describe
+
+```python
+ | describe()
+```
+
+Print Flag content descriptions
+
+<a name="flag.parse_flag"></a>
 #### parse\_flag
 
 ```python
@@ -56,7 +92,7 @@ Parse flag argumnet for value. Defaults to True if exists but no falue passed.
 
   str
 
-<a name="flags.create_flag"></a>
+<a name="flag.create_flag"></a>
 #### create\_flag
 
 ```python
@@ -97,6 +133,28 @@ Root argument object.
 - `description` _string_ - Description of argument.
 - `called` _bool_ - Boolean of if the argument is called. Defaults to False.
 - `flags` _dict_ - Dictionary of Flags for Root with. Defaults to [].
+
+<a name="root.Root.__str__"></a>
+#### \_\_str\_\_
+
+```python
+ | __str__() -> str
+```
+
+Create string of Root contents.
+
+**Returns**:
+
+  str
+
+<a name="root.Root.describe"></a>
+#### describe
+
+```python
+ | describe()
+```
+
+Print Root content descriptions
 
 <a name="root.create_root"></a>
 #### create\_root

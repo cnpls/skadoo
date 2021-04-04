@@ -1,6 +1,6 @@
 from typing import NamedTuple, Dict, List
 
-from skadoo.flags import Flag
+from skadoo.flag import Flag
 from skadoo import utils
 
 
@@ -20,6 +20,26 @@ class Root(NamedTuple):
     description: str
     called: bool
     flags: Dict[str, Flag]
+
+    def __str__(self) -> str:
+        """
+        Create string of Root contents.
+
+        Returns:
+            str
+        """
+        return "\n".join(
+            [
+                f"Root ({self.root})",
+                f"Name: {self.name}",
+                f"Description: {self.description}",
+            ]
+            + [f"{_.__str__()}" for _ in self.flags]
+        )
+
+    def describe(self):
+        """Print Root content descriptions"""
+        print(self.__str__())
 
 
 def create_root(

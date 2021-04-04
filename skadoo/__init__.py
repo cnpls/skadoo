@@ -1,4 +1,4 @@
-from skadoo.flags import create_flag
+from skadoo.flag import create_flag
 from skadoo.root import create_root
 
 
