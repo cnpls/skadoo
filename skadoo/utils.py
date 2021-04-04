@@ -44,7 +44,7 @@ def get_command_parts() -> List[str]:
 
 def get_name_parts(name: str) -> List[str]:
     """
-    Get name parts from name of argument for constructing internal arg name or 
+    Get name parts from name of argument for constructing internal arg name or
     flag identity.
 
     Args:
@@ -54,16 +54,21 @@ def get_name_parts(name: str) -> List[str]:
         List[str]
     """
     return (
-        name.lower().replace("--", " ").strip().replace("-", " ").replace("_", " ").split(" ")
+        name.lower()
+        .replace("--", " ")
+        .strip()
+        .replace("-", " ")
+        .replace("_", " ")
+        .split(" ")
     )
 
 
-def is_called(name: str, abbreviation: str = None) -> bool:
+def is_called(full: str, abbreviation: str = None) -> bool:
     """
     Checks if string is in sys.argv.
 
     Args:
-        name (str): Full string to check for.
+        full (str): Full string to check for.
         abbreviation (str): Abbreviation to check for.
 
     Returns:
@@ -71,7 +76,7 @@ def is_called(name: str, abbreviation: str = None) -> bool:
     """
     parts = get_command_parts()
 
-    found = True if name in parts else False
+    found = True if full in parts else False
 
     if abbreviation and not found:
         found = True if abbreviation in parts else False

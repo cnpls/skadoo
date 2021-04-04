@@ -102,7 +102,7 @@ Root argument object.
 #### create\_root
 
 ```python
-create_root(name: str, description: str = "", flags: List[Flag] = []) -> Root
+create_root(name: str, root: str = "", description: str = "", flags: List[Flag] = []) -> Root
 ```
 
 Create a Root argument.
@@ -110,6 +110,7 @@ Create a Root argument.
 **Arguments**:
 
 - `name` _str_ - Name of argument.
+- `root` _str_ - Command line identifier of root argument.
 - `description` _str, optional_ - Description of argument. Defaults to "".
 - `flags` _list-like_ - Flag args used by Root arg. Defaults to {}.
   
@@ -175,14 +176,14 @@ flag identity.
 #### is\_called
 
 ```python
-is_called(name: str, abbreviation: str = None) -> bool
+is_called(full: str, abbreviation: str = None) -> bool
 ```
 
 Checks if string is in sys.argv.
 
 **Arguments**:
 
-- `name` _str_ - Full string to check for.
+- `full` _str_ - Full string to check for.
 - `abbreviation` _str_ - Abbreviation to check for.
   
 

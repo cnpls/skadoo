@@ -22,19 +22,24 @@ class Root(NamedTuple):
     flags: Dict[str, Flag]
 
 
-def create_root(name: str, description: str = "", flags: List[Flag] = []) -> Root:
+def create_root(
+    name: str, root: str = "", description: str = "", flags: List[Flag] = []
+) -> Root:
     """
     Create a Root argument.
 
     Args:
         name (str): Name of argument.
+        root (str): Command line identifier of root argument.
         description (str, optional): Description of argument. Defaults to "".
         flags (list-like): Flag args used by Root arg. Defaults to {}.
 
     Returns:
         Root
     """
-    root = "_".join(utils.get_name_parts(name))
+
+    if root == "":
+        root = "_".join(utils.get_name_parts(name))
 
     called = utils.is_called(root)
 

@@ -78,15 +78,15 @@ def create_flag(
     Returns:
         Flag
     """
-
-    # clean "--flag-name", "flag name", "flag_name", "-flag-name"
     flag_parts = utils.get_name_parts(name)
-    flag = "--" + "-".join(flag_parts)
+
+    if flag == "":
+        flag = "--" + "-".join(flag_parts)
 
     if short == "":
         short = "-" + "".join([_[:1] for _ in flag_parts])
 
-    called = utils.is_called(name=flag, abbreviation=short)
+    called = utils.is_called(full=flag, abbreviation=short)
 
     if called:
         value = parse_flag(flag, short, empty)

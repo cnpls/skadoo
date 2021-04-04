@@ -6,8 +6,8 @@ pre-commit-venv/scripts/pip install .
 
 echo "running formatting, linting, tests"
 pre-commit-venv/scripts/pip install -r requirements.txt -r requirements-dev.txt
-pre-commit-venv/scripts/python.exe -m black pdappend tests setup.py
-pre-commit-venv/scripts/python.exe -m flake8 pdappend tests setup.py
+pre-commit-venv/scripts/python.exe -m black skadoo tests setup.py
+pre-commit-venv/scripts/python.exe -m flake8 skadoo tests setup.py
 pre-commit-venv/scripts/python.exe -m pytest
 
 echo "removing pre-commit venv"

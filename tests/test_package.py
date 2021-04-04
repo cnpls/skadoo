@@ -7,25 +7,79 @@ import skadoo
 from . import test_dir
 
 
-def test_root():
+def test_add():
     python = sys.executable
 
-    result = subprocess.check_output(
-        [python, os.path.join(test_dir, "examples.py"), "a"]
-    ).decode(sys.stdout.encoding)
-
-    assert "a" in str(result)
-    assert "Commands not recognized" not in str(result)
-
-
-def test_flag():
-    python = sys.executable
+    x = 1
+    y = 1
+    z = 1
 
     result = subprocess.check_output(
-        [python, os.path.join(test_dir, "examples.py"), "a", "-y=1", "--z", "2"]
+        [
+            python,
+            os.path.join(test_dir, "examples.py"),
+            "add_numbers",
+            f"-x",
+            str(x),
+            f"-y={y}",
+            "--z",
+            str(z),
+        ]
     ).decode(sys.stdout.encoding)
 
     print(result)
 
-    assert "a x= y=1 z=2" in str(result)
+    assert str(x + y + z) in str(result)
+    assert "Commands not recognized" not in str(result)
+
+
+def test_subtract():
+    python = sys.executable
+
+    x = 1
+    y = 1
+    z = 1
+
+    result = subprocess.check_output(
+        [
+            python,
+            os.path.join(test_dir, "examples.py"),
+            "subtract_numbers",
+            f"-x",
+            str(x),
+            f"-y={y}",
+            "--z",
+            str(z),
+        ]
+    ).decode(sys.stdout.encoding)
+
+    print(result)
+
+    assert str(x - y - z) in str(result)
+    assert "Commands not recognized" not in str(result)
+
+
+def test_multiply():
+    python = sys.executable
+
+    x = 1
+    y = 1
+    z = 1
+
+    result = subprocess.check_output(
+        [
+            python,
+            os.path.join(test_dir, "examples.py"),
+            "multiply_numbers",
+            f"-x",
+            str(x),
+            f"-y={y}",
+            "--z",
+            str(z),
+        ]
+    ).decode(sys.stdout.encoding)
+
+    print(result)
+
+    assert str(x * y * z) in str(result)
     assert "Commands not recognized" not in str(result)

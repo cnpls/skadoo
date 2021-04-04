@@ -2,16 +2,16 @@
 import skadoo
 
 
-def a_function(x: str, y: str, z: str):
-    print("a", f"x={x}", f"y={y}", f"z={z}")
+def add(x: str, y: str, z: str):
+    print(float(z) + float(y) + float(z))
 
 
-def b_function(x: str, y: str, z: str):
-    print("b", f"x={x}", f"y={y}", f"z={z}")
+def subtract(x: str, y: str, z: str):
+    print(float(z) - float(y) - float(z))
 
 
-def c_function(x: str, y: str, z: str):
-    print("c", f"x={x}", f"y={y}", f"z={z}")
+def multiply(x: str, y: str, z: str):
+    print(float(z) * float(y) * float(z))
 
 
 # create flag args
@@ -20,35 +20,53 @@ y_flag = skadoo.create_flag(name="y", description="y flag arg")
 z_flag = skadoo.create_flag(name="z", description="z flag arg")
 
 # create root arguments
-a = skadoo.create_root(
-    name="a", description="a root arg", flags=(x_flag, y_flag, z_flag)
+add_arg = skadoo.create_root(
+    name="add numbers",
+    description="add numbers passed with flags",
+    flags=(x_flag, y_flag, z_flag),
 )
-b = skadoo.create_root(
-    name="b", description="b root arg", flags=(x_flag, y_flag, z_flag)
+subtract_arg = skadoo.create_root(
+    name="subtract numbers",
+    description="subtract numbers passed with flags",
+    flags=(x_flag, y_flag, z_flag),
 )
-c = skadoo.create_root(
-    name="c", description="c root arg", flags=(x_flag, y_flag, z_flag)
+multiply_arg = skadoo.create_root(
+    name="multiply numbers",
+    description="multiply numbers passed with flags",
+    flags=(x_flag, y_flag, z_flag),
 )
 
 
-# create root-less commands
+# TODO: create root-less commands
 # rootless = skadoo.create_arg(name="rootless", description="arguments without a root", flags=(x_flag, y_flag, z_flag))
 
 
 def main():
 
-    if a.called:
-        a_function(x=a.flags["x"].value, y=a.flags["y"].value, z=a.flags["z"].value)
+    if add_arg.called:
+        add(
+            x=add_arg.flags["x"].value,
+            y=add_arg.flags["y"].value,
+            z=add_arg.flags["z"].value,
+        )
 
         return
 
-    elif b.called:
-        b_function(x=b.flags["x"].value, y=b.flags["y"].value, z=b.flags["z"].value)
+    elif subtract_arg.called:
+        subtract(
+            x=subtract_arg.flags["x"].value,
+            y=subtract_arg.flags["y"].value,
+            z=subtract_arg.flags["z"].value,
+        )
 
         return
 
-    elif c.called:
-        c_function(x=c.flags["x"].value, y=c.flags["y"].value, z=c.flags["z"].value)
+    elif multiply_arg.called:
+        multiply(
+            x=multiply_arg.flags["x"].value,
+            y=multiply_arg.flags["y"].value,
+            z=multiply_arg.flags["z"].value,
+        )
 
         return
 
