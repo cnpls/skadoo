@@ -82,3 +82,20 @@ def is_called(full: str, abbreviation: str = None) -> bool:
         found = True if abbreviation in parts else False
 
     return found
+
+
+def want_help() -> bool:
+    """
+    Check if -h or --h in sys.argv.
+
+    Returns:
+        bool
+    """
+
+    if "-h" in sys.argv:
+        return True
+
+    if "--help" in sys.argv:
+        return True
+
+    return False

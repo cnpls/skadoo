@@ -1,3 +1,5 @@
+import sys
+
 from typing import NamedTuple, Dict, List
 
 from skadoo.flag import Flag
@@ -28,18 +30,18 @@ class Root(NamedTuple):
         Returns:
             str
         """
-        return "\n".join(
+        return "\n ".join(
             [
                 f"Root ({self.root})",
                 f"Name: {self.name}",
                 f"Description: {self.description}",
             ]
-            + [f"{_.__str__()}" for _ in self.flags]
+            + [f"{self.flags[_].__str__()}" for _ in self.flags]
         )
 
     def describe(self):
         """Print Root content descriptions"""
-        print(self.__str__())
+        print("~~~~~ Help ~~~~~~\n" + self.__str__())
 
 
 def create_root(
@@ -63,4 +65,10 @@ def create_root(
 
     called = utils.is_called(root)
 
-    return Root(name, root, description, called, flags={_.name: _ for _ in flags})
+    result = Root(name, root, description, called, flags={_.name: _ for _ in flags})
+
+    if called and utils.want_help():
+        result.describe()
+        sys.exit()
+
+    return result

@@ -40,7 +40,7 @@ class Flag(NamedTuple):
         Returns:
             str
         """
-        return "\n".join(
+        return "\n ".join(
             [
                 f"Flag ({self.flag})",
                 f"Short ({self.short})",

@@ -17,6 +17,7 @@
   * [get\_command\_parts](#utils.get_command_parts)
   * [get\_name\_parts](#utils.get_name_parts)
   * [is\_called](#utils.is_called)
+  * [want\_help](#utils.want_help)
 * [\_\_init\_\_](#__init__)
 
 <a name="flag"></a>
@@ -244,6 +245,19 @@ Checks if string is in sys.argv.
 - `full` _str_ - Full string to check for.
 - `abbreviation` _str_ - Abbreviation to check for.
   
+
+**Returns**:
+
+  bool
+
+<a name="utils.want_help"></a>
+#### want\_help
+
+```python
+want_help() -> bool
+```
+
+Check if -h or --h in sys.argv.
 
 **Returns**:
 
