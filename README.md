@@ -1,5 +1,7 @@
 ![tests](https://github.com/cnpls/skadoo/workflows/tests/badge.svg)
 
+This project is under development.
+
 # skadoo
 
 Python library for building command line programs.
