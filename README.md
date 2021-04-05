@@ -28,11 +28,10 @@ my_root = skadoo.create_root(
 )
 
 if __name__ == "__main__":
-    print("root used:", my_root.name, f"flag ({my_flag.name}) value: {my_flag.value}")
-
-    # or
-
-    print("root used:", my_root.name, f"flag ({my_root.flags["my flag"].flag}) value: {my_root.flags["my flag"].value}")
+    flag = y_root.flags["my flag"].flag
+    flag_value = my_root.flags["my flag"].value
+    
+    print("root used:", my_root.root, f"flag ({flag}) value: {flag_value}")
 ```
 
 Run `python my_script.py my_root --my-flag="value"`
